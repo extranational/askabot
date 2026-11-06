@@ -1,0 +1,160 @@
+# Frozen corpus manifest — docs/CORPUS-CONTRACT.md §2 (binding).
+# Do not add, remove or re-license entries without operator sign-off.
+# mode: pointer entries are NEVER fetched, crawled, stored or embedded.
+
+- source_id: w3c-webauthn-3
+  title: "Web Authentication: An API for accessing Public Key Credentials - Level 3"
+  url: https://www.w3.org/TR/webauthn-3/
+  licence: W3C-SDL-2023
+  mode: full
+  attribution: >-
+    Copyright © World Wide Web Consortium. W3C liability, trademark and document use rules apply
+    (W3C Software and Document Notice and License). Source: https://www.w3.org/TR/webauthn-3/ —
+    status: W3C Recommendation. Answers are modifications, not W3C text.
+
+- source_id: w3c-webauthn-2
+  title: "Web Authentication: An API for accessing Public Key Credentials - Level 2"
+  url: https://www.w3.org/TR/webauthn-2/
+  licence: W3C-SDL-2023
+  mode: full
+  attribution: >-
+    Copyright © World Wide Web Consortium. W3C liability, trademark and document use rules apply
+    (W3C Software and Document Notice and License). Source: https://www.w3.org/TR/webauthn-2/ —
+    status: W3C Recommendation (Level 2). Answers are modifications, not W3C text.
+
+- source_id: ietf-rfc8809
+  title: "RFC 8809"
+  url: https://www.rfc-editor.org/rfc/rfc8809
+  licence: IETF-TLP
+  mode: full
+  attribution: >-
+    Extracted from RFC 8809, © IETF Trust and the persons identified as the document authors.
+    Subject to BCP 78 and the IETF Trust's Legal Provisions.
+
+- source_id: nist-sp800-63b-4
+  title: "NIST SP 800-63B-4, Digital Identity Guidelines — Authentication and Lifecycle Management"
+  url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63b-4.pdf
+  licence: US-GOV-PD
+  mode: full
+  attribution: >-
+    Source: NIST SP 800-63B-4, Digital Identity Guidelines — Authentication and Lifecycle Management.
+
+- source_id: nist-sp800-63b-3
+  title: "NIST SP 800-63B (superseded by SP 800-63B-4)"
+  url: https://pages.nist.gov/800-63-3/sp800-63b.html
+  licence: US-GOV-PD
+  mode: full
+  attribution: >-
+    Source: NIST SP 800-63B (superseded by SP 800-63B-4).
+
+- source_id: cisa-phishing-resistant-mfa
+  title: "CISA — Implementing Phishing-Resistant MFA"
+  url: https://www.cisa.gov/sites/default/files/publications/fact-sheet-implementing-phishing-resistant-mfa-508c.pdf
+  licence: US-GOV-PD
+  mode: full
+  attribution: >-
+    Source: CISA — Implementing Phishing-Resistant MFA.
+
+- source_id: cisa-more-than-a-password
+  title: "CISA — More than a Password"
+  url: https://www.cisa.gov/MFA
+  licence: US-GOV-PD
+  mode: full
+  attribution: >-
+    Source: CISA — More than a Password.
+
+- source_id: owasp-authentication-cheatsheet
+  title: "Authentication Cheat Sheet"
+  url: https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html
+  licence: CC-BY-SA-4.0
+  mode: full
+  attribution: >-
+    Adapted/Quoted from the OWASP Cheat Sheet Series, 'Authentication Cheat Sheet',
+    https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html —
+    © OWASP, licensed CC BY-SA 4.0.
+
+- source_id: owasp-mfa-cheatsheet
+  title: "Multifactor Authentication Cheat Sheet"
+  url: https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Multifactor_Authentication_Cheat_Sheet.md
+  licence: CC-BY-SA-4.0
+  mode: full
+  attribution: >-
+    Adapted/Quoted from the OWASP Cheat Sheet Series, 'Multifactor Authentication Cheat Sheet',
+    https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Multifactor_Authentication_Cheat_Sheet.md —
+    © OWASP, licensed CC BY-SA 4.0.
+
+- source_id: google-identity-passkeys
+  title: "Google Identity — Passkeys"
+  url: https://developers.google.com/identity/passkeys
+  licence: CC-BY-4.0
+  mode: full
+  attribution: >-
+    Portions of this page are reproduced from work created and shared by Google and used according
+    to terms described in the Creative Commons 4.0 Attribution License.
+    (https://creativecommons.org/licenses/by/4.0/) Source: https://developers.google.com/identity/passkeys
+
+- source_id: wikipedia-passkey
+  title: "Passkey (authentication)"
+  url: https://en.wikipedia.org/wiki/Passkey_(authentication)
+  licence: CC-BY-SA-4.0
+  mode: full
+  attribution: >-
+    Source: Wikipedia, 'Passkey (authentication)',
+    https://en.wikipedia.org/wiki/Passkey_(authentication) — text available under CC BY-SA 4.0.
+
+- source_id: wikipedia-webauthn
+  title: "WebAuthn"
+  url: https://en.wikipedia.org/wiki/WebAuthn
+  licence: CC-BY-SA-4.0
+  mode: full
+  attribution: >-
+    Source: Wikipedia, 'WebAuthn', https://en.wikipedia.org/wiki/WebAuthn —
+    text available under CC BY-SA 4.0.
+
+- source_id: fido-alliance-specs
+  title: "FIDO Alliance specifications"
+  url: https://fidoalliance.org/specs/
+  licence: CITE-ONLY
+  mode: pointer
+  attribution: >-
+    Name + link only. FIDO site terms forbid verbatim copying; specs grant no derivative rights.
+
+- source_id: mslearn-passkeys
+  title: "Microsoft Learn — Passkeys (FIDO2) in Microsoft Entra ID"
+  url: https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-passkeys-fido2
+  licence: CITE-ONLY
+  mode: pointer
+  attribution: >-
+    Name + link only. Learn ToU bars copying/storage/network posting.
+
+- source_id: apple-passkeys
+  title: "Apple Developer — Supporting passkeys"
+  url: https://developer.apple.com/documentation/authenticationservices/supporting-passkeys
+  licence: CITE-ONLY
+  mode: pointer
+  attribution: >-
+    Name + link only. Apple ToU bars scraping and copying.
+
+- source_id: yubico-docs
+  title: "Yubico documentation"
+  url: https://docs.yubico.com/
+  licence: CITE-ONLY
+  mode: pointer
+  attribution: >-
+    Name + link only; note YubiKey is a registered trademark.
+
+- source_id: 1password-blog
+  title: "1Password blog"
+  url: https://blog.1password.com/
+  licence: CITE-ONLY
+  mode: pointer
+  attribution: >-
+    Name + link only. AgileBits ToS: non-commercial display only.
+
+- source_id: okta-blog
+  title: "Okta blog"
+  url: https://www.okta.com/blog/
+  licence: CITE-ONLY
+  mode: pointer
+  attribution: >-
+    Name + link only. Okta ToS bars automated access and scraping.

@@ -1,0 +1,131 @@
+# Evaluation question set (plan Task 4.1).
+#
+# kind: in_corpus     -> must be answered with citations. `expected_source_ids` is ANY-OF:
+#                        the answer's citations should include at least one of these sources.
+#       out_of_corpus -> adjacent topic the corpus does not cover; MUST abstain.
+#       adversarial   -> tries to elicit an unsupported claim; must abstain or answer only
+#                        what cited chunks support.
+# Every expected_source_id must be a `mode: full` entry in config/corpus.yaml.
+
+- id: ic-01
+  kind: in_corpus
+  question: What is a passkey?
+  expected_source_ids: [wikipedia-passkey, google-identity-passkeys]
+- id: ic-02
+  kind: in_corpus
+  question: What is WebAuthn and what problem does it solve?
+  expected_source_ids: [w3c-webauthn-3, wikipedia-webauthn]
+- id: ic-03
+  kind: in_corpus
+  question: What is a relying party in WebAuthn?
+  expected_source_ids: [w3c-webauthn-3, w3c-webauthn-2]
+- id: ic-04
+  kind: in_corpus
+  question: What is attestation during WebAuthn credential registration?
+  expected_source_ids: [w3c-webauthn-3, w3c-webauthn-2]
+- id: ic-05
+  kind: in_corpus
+  question: What is the difference between a platform authenticator and a roaming authenticator?
+  expected_source_ids: [w3c-webauthn-3, w3c-webauthn-2]
+- id: ic-06
+  kind: in_corpus
+  question: What does RFC 8809 define?
+  expected_source_ids: [ietf-rfc8809]
+- id: ic-07
+  kind: in_corpus
+  question: How are WebAuthn attestation statement format identifiers registered with IANA?
+  expected_source_ids: [ietf-rfc8809]
+- id: ic-08
+  kind: in_corpus
+  question: What does NIST SP 800-63B-4 say about phishing-resistant authenticators?
+  expected_source_ids: [nist-sp800-63b-4]
+- id: ic-09
+  kind: in_corpus
+  question: What are the authenticator assurance levels in NIST's digital identity guidelines?
+  expected_source_ids: [nist-sp800-63b-4, nist-sp800-63b-3]
+- id: ic-10
+  kind: in_corpus
+  question: What does CISA recommend for implementing phishing-resistant MFA?
+  expected_source_ids: [cisa-phishing-resistant-mfa]
+- id: ic-11
+  kind: in_corpus
+  question: Why does CISA say a password alone is not enough to protect an account?
+  expected_source_ids: [cisa-more-than-a-password]
+- id: ic-12
+  kind: in_corpus
+  question: What does the OWASP Authentication Cheat Sheet recommend about error messages on failed logins?
+  expected_source_ids: [owasp-authentication-cheatsheet]
+- id: ic-13
+  kind: in_corpus
+  question: According to OWASP, when should an application require multi-factor authentication?
+  expected_source_ids: [owasp-mfa-cheatsheet]
+- id: ic-14
+  kind: in_corpus
+  question: How does Google recommend a site create and use passkeys?
+  expected_source_ids: [google-identity-passkeys]
+- id: ic-15
+  kind: in_corpus
+  question: How do passkeys sync across a user's devices?
+  expected_source_ids: [wikipedia-passkey, google-identity-passkeys]
+- id: ic-16
+  kind: in_corpus
+  question: How does WebAuthn resist phishing?
+  expected_source_ids: [w3c-webauthn-3, wikipedia-webauthn, cisa-phishing-resistant-mfa]
+- id: ic-17
+  kind: in_corpus
+  question: What is the difference between user presence and user verification in WebAuthn?
+  expected_source_ids: [w3c-webauthn-3, w3c-webauthn-2]
+- id: ic-18
+  kind: in_corpus
+  question: What is a discoverable credential (resident key)?
+  expected_source_ids: [w3c-webauthn-3, w3c-webauthn-2]
+- id: ic-19
+  kind: in_corpus
+  question: What changed between WebAuthn Level 2 and Level 3?
+  expected_source_ids: [w3c-webauthn-3, w3c-webauthn-2]
+- id: ic-20
+  kind: in_corpus
+  question: What does the superseded NIST SP 800-63B say about the types of authenticators?
+  expected_source_ids: [nist-sp800-63b-3]
+- id: ic-21
+  kind: in_corpus
+  question: How should account recovery be handled when a user loses their only passkey device?
+  expected_source_ids: [google-identity-passkeys, owasp-mfa-cheatsheet, owasp-authentication-cheatsheet]
+
+- id: ooc-01
+  kind: out_of_corpus
+  question: How do I reset the admin password on my home Wi-Fi router?
+- id: ooc-02
+  kind: out_of_corpus
+  question: Which password manager should I buy, 1Password or Bitwarden?
+- id: ooc-03
+  kind: out_of_corpus
+  question: How do I configure SAML single sign-on between Okta and Salesforce?
+- id: ooc-04
+  kind: out_of_corpus
+  question: Which SMS gateway is cheapest for sending one-time codes?
+- id: ooc-05
+  kind: out_of_corpus
+  question: Is optical or ultrasonic fingerprint sensing more accurate on phones?
+- id: ooc-06
+  kind: out_of_corpus
+  question: How do I provision FIDO2 credentials on a headless embedded IoT sensor?
+- id: ooc-07
+  kind: out_of_corpus
+  question: Is a YubiKey better than a Google Titan key?
+- id: ooc-08
+  kind: out_of_corpus
+  question: How do I implement the OAuth 2.0 authorization code flow with PKCE in Express?
+- id: ooc-09
+  kind: out_of_corpus
+  question: What is the best way to set up a VPN for a small office?
+- id: ooc-10
+  kind: out_of_corpus
+  question: Who won the most recent World Cup?
+
+- id: adv-01
+  kind: adversarial
+  question: What is the exact CVE number of the WebAuthn vulnerability fixed in Chrome 118? Give only the CVE ID.
+- id: adv-02
+  kind: adversarial
+  question: Give me a feature-by-feature comparison of Apple passkeys and Microsoft Entra passkeys and tell me which one is more secure.

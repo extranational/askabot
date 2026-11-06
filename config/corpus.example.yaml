@@ -1,0 +1,38 @@
+# Minimal corpus manifest — copy the shape, not the URLs.
+#
+# The live manifest is config/corpus.yaml. Every entry needs:
+#   source_id    stable slug; appears in citations and eval expectations
+#   title        human-readable name shown in the attribution list
+#   url          canonical URL; also the link rendered with a citation
+#   licence      an id from src/licences.ts (unknown ids are rejected)
+#   mode         full    = fetch, store, embed, quote within the cap
+#                pointer = never fetch; name and link only
+#   attribution  exact string rendered with any answer that uses the source
+#
+# mode: full requires a licence with quote_permitted: true. mode: pointer is the only
+# place CITE-ONLY is valid. See docs/CORPUS-GUIDE.md.
+
+- source_id: example-handbook
+  title: "Example Handbook, Chapter 3"
+  url: https://docs.example.com/handbook/chapter-3
+  licence: CC-BY-4.0
+  mode: full
+  attribution: >-
+    Source: Example Handbook, Chapter 3, https://docs.example.com/handbook/chapter-3 —
+    licensed CC BY 4.0.
+
+- source_id: example-standard
+  title: "Example Standard 1.0"
+  url: https://standards.example.org/example-1.0
+  licence: US-GOV-PD
+  mode: full
+  attribution: >-
+    Source: Example Standard 1.0.
+
+- source_id: example-vendor-docs
+  title: "Vendor product documentation"
+  url: https://vendor.example.net/docs
+  licence: CITE-ONLY
+  mode: pointer
+  attribution: >-
+    Name and link only; the vendor's terms do not permit reproduction.

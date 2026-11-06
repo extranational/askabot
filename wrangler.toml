@@ -1,0 +1,49 @@
+# Cloudflare Worker configuration.
+#
+# Every value marked REPLACE must be created in your own Cloudflare account first; see
+# docs/DEPLOYMENT.md. Nothing here is provisioned by the repository.
+name = "askabot"
+main = "src/worker.ts"
+compatibility_date = "2026-10-01"
+# config.ts / corpus.ts import node:fs for their file loaders (unused in the Worker).
+compatibility_flags = ["nodejs_compat"]
+
+# config/*.yaml are bundled as text modules (src/worker.ts).
+[[rules]]
+type = "Text"
+globs = ["**/*.yaml"]
+fallthrough = true
+
+# Workers AI (generation, routed through AI Gateway).
+[ai]
+binding = "AI"
+
+# KV namespace for rate-limit and monthly counters.
+# Create with: npx wrangler kv namespace create RATE_LIMIT
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# AI Search instance binding named AI_SEARCH. src/retrieve.ts calls env.AI_SEARCH.search()
+# DIRECTLY, which is the INSTANCE binding form (an `ai_search_namespaces` binding would
+# instead require env.AI_SEARCH.get(instance).search()).
+#
+# The instance must already exist in the `default` namespace at deploy time; create it
+# before deploying. Syntax per
+# https://developers.cloudflare.com/ai-search/api/search/workers-binding/
+[[ai_search]]
+binding = "AI_SEARCH"
+instance_name = "REPLACE_WITH_AI_SEARCH_INSTANCE"
+
+[vars]
+# AI Gateway id (not the account id). Create the gateway in the dashboard or API.
+AI_GATEWAY_ID = "REPLACE_WITH_AI_GATEWAY_ID"
+# For generation.provider = "external" also set CF_ACCOUNT_ID (var) and CF_AIG_TOKEN
+# (wrangler secret). The workers-ai provider needs neither.
+
+# Custom domain for the API. `custom_domain = true` makes Cloudflare create the DNS record
+# and certificate itself, so no separate DNS step is needed. The hostname must also appear in
+# the consuming page's endpoint and its Content-Security-Policy connect-src.
+[[routes]]
+pattern = "askabot-api.example.com"
+custom_domain = true

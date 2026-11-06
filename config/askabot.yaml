@@ -1,0 +1,51 @@
+# Askabot runtime configuration.
+#
+# This file is the source of truth for retrieval, generation, serving limits and the
+# abstention message. It is bundled into the Worker at build time, so changing it is a
+# deploy, not a dashboard edit.
+#
+# The shipped values are a working example for the passkeys corpus in config/corpus.yaml.
+# To point Askabot at a different corpus: replace config/corpus.yaml, change `assistant.subject`
+# and `abstain.message`, then re-ingest. No code changes are required.
+
+corpus_manifest: config/corpus.yaml
+
+assistant:
+  # What the corpus covers. Injected into the grounding prompt; the citation, abstention and
+  # quote-cap rules are fixed in src/prompt.ts and are not configurable.
+  subject: "passkeys, WebAuthn and phishing-resistant authentication"
+
+retrieval:
+  max_num_results: 8
+  match_threshold: 0.4      # vector-similarity floor (filters vector_score, not the returned score)
+  # NOTE: with reranking on, chunks[].score IS the reranking score, so the abstention gate uses
+  # reranking.match_threshold below, not this value. Tune both against your own corpus.
+
+reranking:
+  # Sent explicitly on every request (ai_search_options.reranking), so THIS file — not the
+  # instance — is the source of truth and the two cannot drift. A mis-placed reranking field
+  # inside `retrieval` is silently ignored by AI Search, so the shape matters.
+  enabled: true
+  model: "@cf/baai/bge-reranker-base"
+  match_threshold: 0.4      # THE abstention-relevant knob while reranking is on
+
+generation:
+  provider: workers-ai       # workers-ai | external
+  model: "@cf/meta/llama-4-scout-17b-16e-instruct"
+  max_tokens: 900
+  temperature: 0.1
+
+serving:
+  rate_limit_per_ip_per_hour: 20
+  monthly_query_ceiling: 3000
+  # Browser origins allowed to call /api/chat (CORS). Exact match; never "*": the rate limit is
+  # per-IP, so a wildcard would let any website spend the monthly budget from a visitor's browser.
+  # Replace with the origins that host your page.
+  allowed_origins:
+    - https://www.example.com
+    - https://example.com
+    - http://localhost:3000
+
+abstain:
+  # Returned verbatim when retrieval finds nothing above the threshold. No model call is made.
+  message: "That isn't covered by the material in this corpus. Try rephrasing the question, or ask about a topic the corpus documents."

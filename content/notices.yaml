@@ -1,0 +1,116 @@
+# Public notice copy, rendered verbatim by GET /notices.
+#
+# THIS IS A TEMPLATE. Replace every [BRACKETED] value and review the prose against what your
+# deployment actually does before publishing. The notice is a public claim about your service,
+# so it needs an owner's sign-off, not a code review.
+#
+# Stored as structured data rather than markdown so the route renders exactly this wording with
+# no markdown dependency and nothing retyped. The per-source attribution list is NOT here — it
+# is generated at render time from config/corpus.yaml and src/licences.ts, so it cannot drift
+# from the manifest.
+
+title: "Notices — [SERVICE NAME]"
+updated: "[YYYY-MM-DD]"
+contact_email: "[privacy@example.com]"
+
+sections:
+  - heading: "About this service"
+    paragraphs:
+      - >-
+        This page is the notice for [ORGANIZATION]'s [SUBJECT] question-and-answer service. It
+        is not legal, security or implementation advice, and it is not a substitute for the
+        documentation published by the sources it cites. For anything you intend to rely on,
+        read the primary source — every answer links to it.
+      - >-
+        It is provided as-is, without warranty of any kind, and using it does not create any
+        professional or advisory relationship with [ORGANIZATION].
+
+  - heading: "Where the answers come from"
+    paragraphs:
+      - >-
+        Answers are generated only from a curated corpus of sources. The bot is instructed to
+        answer from those sources alone and to abstain when they do not cover a question.
+        Declining to answer is the intended behaviour, not a fault: an unsourced or invented
+        answer is worse than no answer at all.
+      - >-
+        The corpus is not secret. It is declared in config/corpus.yaml in the public
+        repository, so anyone can see exactly which sources are used and under which licence.
+      - "The corpus has two tiers:"
+    list:
+      - >-
+        Ingested sources — their text is stored and used to answer questions, and every
+        answer that uses one carries that source's required attribution.
+      - >-
+        Cited-only sources — named and linked, never copied, crawled or stored. This tier
+        exists for sources whose terms do not permit reproduction.
+
+  - heading: "Sources, licences and attribution"
+    paragraphs:
+      - >-
+        Each source is used under its own licence, and each licence's obligations are encoded
+        as data, not prose. Where a licence requires attribution, the answer displays it.
+        Where a licence requires that adaptations be shared alike (for example CC BY-SA 4.0),
+        an adaptations notice is shown with the answer. Public-domain and government works
+        are credited as a courtesy even where no credit is required.
+      - >-
+        Some sources are linked but not reproduced, because their terms do not allow it. A
+        link is not an endorsement, and no source's inclusion implies any affiliation with, or
+        endorsement of, [ORGANIZATION]. Trademarks named on this page belong to their
+        respective owners.
+    attribution_list: true
+
+  - heading: "Your question and your address"
+    paragraphs:
+      - >-
+        [ORGANIZATION] keeps no history of questions or sessions, and there is nothing linking
+        you to a question or response.
+      - >-
+        However, each question is processed through Cloudflare's AI Gateway, which keeps a log
+        of the request and the response. While visible to the operator in the Cloudflare
+        dashboard, those entries are not linked to a person or session. The Cloudflare log is
+        a rolling history with a maximum of 100,000 entries, oldest discarded first; the
+        operator does not save a question history. A question the bot declines to answer is
+        not logged.
+      - "To keep the service available and within budget, two counters are kept:"
+    list:
+      - >-
+        a per-address counter to enforce an hourly limit. The key is a truncated SHA-256 hash
+        of your IP address — not your address in readable form — and it expires after two
+        hours.
+      - >-
+        a monthly counter for the total number of questions, which contains no address
+        information and expires after the following month.
+    after:
+      - >-
+        Requests necessarily pass through Cloudflare's infrastructure to be served, and their
+        handling of that traffic is governed by Cloudflare's own terms and privacy policy.
+
+  - heading: "Removal and opt-out"
+    paragraphs:
+      - >-
+        If you own or control content in the corpus and would like it removed, write to
+        [privacy@example.com]. A URL is enough — you do not need to give a reason, and you do
+        not need to be the copyright owner to ask the operator to reconsider a source.
+      - "What happens when you ask:"
+    ordered: true
+    list:
+      - >-
+        The source is removed from config/corpus.yaml. Where the point is that the text should
+        not be reproduced but readers may still be pointed to it, the entry becomes
+        cited-only; where the point is that it should not be referenced at all, the entry is
+        deleted.
+      - "The source's stored content is deleted from the search index."
+      - >-
+        The removal is recorded in a commit to the public repository, so the change is visible
+        rather than made quietly.
+    after:
+      - >-
+        The operator aims to action removals within five business days. If the timeline
+        matters, say so and the operator will report where the request has got to.
+
+  - heading: "Changes"
+    paragraphs:
+      - >-
+        If this notice changes in a way that affects how content or addresses are handled, the
+        change is made in a commit to the public repository and the date at the top of this
+        page is updated, rather than editing the page silently.
